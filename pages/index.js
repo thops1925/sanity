@@ -1,18 +1,12 @@
 import React from 'react';
-import {
-  Cart,
-  Footer,
-  FooterBanner,
-  HeroBanner,
-  Layout,
-  Navbar,
-  Product,
-} from '../components';
+import { client } from '../lib/client';
+import { FooterBanner, HeroBanner, Product } from '../components';
 
 const Home = () => {
   return (
-    <>
-      HeroBanner
+    <div>
+      <HeroBanner />
+
       <div className="products-heading">
         <h2 className="">Cameras</h2>
         <p className="">
@@ -26,9 +20,17 @@ const Home = () => {
           (product) => product
         )}
       </div>
-      Footer
-    </>
+      <FooterBanner />
+    </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const query = `*[_type == "product"]`;
+  const products = await client.fetch(query);
+
+  const bannerQuery = `*[_type == "banner"]`;
+  const bannerData = await client.fetch(bannerQuery);
 };
 
 export default Home;
