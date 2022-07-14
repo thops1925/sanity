@@ -1,25 +1,30 @@
 import React from 'react';
+import {
+  Cart,
+  Footer,
+  FooterBanner,
+  HeroBanner,
+  Layout,
+  Navbar,
+  Product,
+} from '../components';
 
 const Home = () => {
   return (
     <>
       HeroBanner
-      <div>
-        <h2>GFX System </h2>
-        <p>
-          Large format mirrorless digital camera system that achieves the
-          world’s highest level of image quality.
+      <div className="products-heading">
+        <h2 className="">Cameras</h2>
+        <p className="">
+          The central themes of the GFX & X Series are simplicity and elegance;
+          the camera is a precision instrument, but one that’s combined with a
+          functional beauty.
         </p>
       </div>
-      <div>
-        {[
-          'product1',
-          'product2',
-          'product3',
-          'product4',
-          'product5',
-          'product6',
-        ].map((product) => product)}
+      <div className="products-container">
+        {['product 1', 'product 2', 'product 3', 'product 4'].map(
+          (product) => product
+        )}
       </div>
       Footer
     </>
