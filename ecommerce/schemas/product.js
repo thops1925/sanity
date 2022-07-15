@@ -6,20 +6,25 @@ export default {
     {
       name: 'image',
       title: 'Image',
-      type: 'array', // of image objects
+      type: 'array',
       of: [{ type: 'image' }],
-      options: { hotspot: true },
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'name',
-      title: 'Title',
+      title: 'Name',
       type: 'string',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: { source: 'name', maxLength: 96 },
+      options: {
+        source: 'name',
+        maxLength: 90,
+      },
     },
     {
       name: 'price',
