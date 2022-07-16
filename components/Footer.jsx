@@ -1,7 +1,15 @@
 import React from 'react';
-
+import { AiFillInstagram, AiOutlineTwitter } from 'react-icons/ai';
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <div className="footer-container">
+      <p>Thopz Camera © 2020. All rights reserved.</p>
+      <p className="icons">
+        <AiFillInstagram />
+        <AiOutlineTwitter />c
+      </p>
+    </div>
+  );
 };
 
 export default Footer;
