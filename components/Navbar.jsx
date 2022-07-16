@@ -8,7 +8,7 @@ const Navbar = () => {
       <p>
         <Link href="/">Camera</Link>
       </p>
-      <button className="cart-icon" onClick="" type="button">
+      <button className="cart-icon" type="button">
         <AiOutlineShopping />
         <span className="cart-item-qty">0</span>
       </button>

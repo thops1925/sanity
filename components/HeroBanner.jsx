@@ -22,9 +22,9 @@ const HeroBanner = ({
 
         <img src={urlFor(image)} alt="camera" className="hero-banner-image" />
         <div>
-          <Link href={`/product/${product}`}>
-            <button type="button">{buttonText}</button>
-          </Link>
+          {/* <Link href={`/product/${product}`}>
+            {/* <button type="button">{buttonText}</button> */}
+          {/* </Link> */}
           <div className="desc">
             <h5>Description</h5>
             <p>{desc}</p>
