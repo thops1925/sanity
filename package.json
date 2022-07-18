@@ -11,6 +11,8 @@
   "dependencies": {
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
+    "comma-number": "^2.1.0",
+    "format-thousands": "^2.0.0",
     "next": "12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
