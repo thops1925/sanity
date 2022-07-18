@@ -67,8 +67,7 @@ export const getStaticPaths = async () => {
       slug {
         current
       }
-    }
-    `;
+    }`;
 
   const products = await client.fetch(query);
 
@@ -83,6 +82,7 @@ export const getStaticPaths = async () => {
     fallback: 'blocking',
   };
 };
+
 export const getStaticProps = async ({ params: { slug } }) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
   const productsQuery = '*[_type == "product"]';

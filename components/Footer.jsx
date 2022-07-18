@@ -6,7 +6,7 @@ const Footer = () => {
       <p>Thopz Camera © 2020. All rights reserved.</p>
       <p className="icons">
         <AiFillInstagram />
-        <AiOutlineTwitter />c
+        <AiOutlineTwitter />
       </p>
     </div>
   );
