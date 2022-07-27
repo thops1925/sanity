@@ -14,7 +14,7 @@ const Navbar = () => {
       <button
         className="cart-icon"
         type="button"
-        onClick={() => setShowCart((current) => !current)}
+        onClick={() => setShowCart(true)}
       >
         <AiOutlineShopping />
         <span className="cart-item-qty">{totalQuantity}</span>
