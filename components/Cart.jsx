@@ -13,8 +13,8 @@ import { urlFor } from '../lib/client';
 
 const Cart = () => {
   const cartRef = useRef();
-  const { setShowCart, cart, totalQuantity, totalPrice } = useStateContext();
-  console.log(totalQuantity);
+  const { setShowCart, cart, totalQuantity, totalPrice, toggleCartItem } =
+    useStateContext();
   return (
     <div className="cart-wrapper" ref={cartRef}>
       <div className="cart-container">
@@ -25,7 +25,7 @@ const Cart = () => {
         >
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantity}item)</span>
+          <span className="cart-num-items">({totalQuantity} item)</span>
         </button>
         {cart.length < 1 && (
           <div className="empty-cart">
@@ -57,18 +57,40 @@ const Cart = () => {
                   </div>
                   <div className="flex bottom">
                     <div className="quantity-desc">
-                      <span className="minus">
+                      <span
+                        className="minus"
+                        onClick={() => toggleCartItem(product._id, 'dec')}
+                      >
                         <AiOutlineMinus />
                       </span>
-                      <span className="num"></span>
-                      <span className="plus">
+                      <span className="num">{product.quantity}</span>
+                      <span
+                        className="plus"
+                        onClick={() => toggleCartItem(product._id, 'inc')}
+                      >
                         <AiOutlinePlus />
                       </span>
                     </div>
+                    <button type="button" className="remove-item">
+                      <TiDeleteOutline />
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
+          {cart.length >= 1 && (
+            <div className="cart-bottom">
+              <div className="total">
+                <h3>SubTotal:</h3>
+                <h3>{totalPrice}</h3>
+              </div>
+              <div className="btn-container">
+                <button type="button" className="btn">
+                  Pay With Stripe
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

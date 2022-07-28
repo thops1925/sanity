@@ -12,7 +12,7 @@ import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
   const { name, details, price, image } = product;
-  const [Index, setIndex] = useState(0);
+  const [isIndex, setIndex] = useState(0);
   const { incQty, decQty, qty, onAdd } = useStateContext();
   return (
     <div>
@@ -21,7 +21,7 @@ const ProductDetails = ({ product, products }) => {
           <div className="image-container">
             <img
               className="product-detail-image"
-              src={urlFor(image && image[Index])}
+              src={urlFor(image && image[isIndex])}
             />
           </div>
 
@@ -30,7 +30,9 @@ const ProductDetails = ({ product, products }) => {
               <img
                 key={index}
                 className={
-                  index === Index ? 'small-image selected-image' : 'small-image'
+                  index === isIndex
+                    ? 'small-image selected-image'
+                    : 'small-image'
                 }
                 src={urlFor(image)}
                 onMouseEnter={() => setIndex(index)}
@@ -74,7 +76,7 @@ const ProductDetails = ({ product, products }) => {
             >
               Add to Cart
             </button>
-            <button className="buy-now" type="button" onClick="">
+            <button className="buy-now" type="button">
               Buy Now
             </button>
           </div>
@@ -86,7 +88,7 @@ const ProductDetails = ({ product, products }) => {
         <div className="marquee">
           <div className="maylike-products-container track">
             {products.map((item) => (
-              <Product key={item.id} product={item} />
+              <Product key={item._id} product={item} />
             ))}
           </div>
         </div>
