@@ -25,7 +25,9 @@ const Cart = () => {
         >
           <AiOutlineLeft />
           <span className="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantity} item)</span>
+          <span className="cart-num-items">
+            ({totalQuantity.toLocaleString()} item)
+          </span>
         </button>
         {cart.length < 1 && (
           <div className="empty-cart">
@@ -53,7 +55,7 @@ const Cart = () => {
                 <div className="item-desc">
                   <div className="flex top">
                     <h5>{product.name}</h5>
-                    <h4>{product.price}</h4>
+                    <h4>₱{product.price.toLocaleString()}</h4>
                   </div>
                   <div className="flex bottom">
                     <div className="quantity-desc">
@@ -82,7 +84,7 @@ const Cart = () => {
             <div className="cart-bottom">
               <div className="total">
                 <h3>SubTotal:</h3>
-                <h3>{totalPrice}</h3>
+                <h3>₱{totalPrice.toLocaleString()}</h3>
               </div>
               <div className="btn-container">
                 <button type="button" className="btn">

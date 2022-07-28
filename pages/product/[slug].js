@@ -6,12 +6,11 @@ import {
   AiOutlineStar,
   AiFillStar,
 } from 'react-icons/ai';
-import comma from 'comma-number';
 import Product from '../../components/Product';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-  const { name, details, price, image } = product;
+  const { name, details, price, image, _id } = product;
   const [isIndex, setIndex] = useState(0);
   const { incQty, decQty, qty, onAdd } = useStateContext();
   return (
@@ -54,7 +53,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <h4>Details:</h4>
           <p>{details}</p>
-          <p className="price">₱ {comma(price)}</p>
+          <p className="price">₱ {price.toLocaleString()}</p>
           <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
@@ -86,7 +85,7 @@ const ProductDetails = ({ product, products }) => {
       <div className="maylike-products-wrapper">
         <h2>You May also like</h2>
         <div className="marquee">
-          <div className="maylike-products-container track">
+          <div className="maylike-products-container">
             {products.map((item) => (
               <Product key={item._id} product={item} />
             ))}
