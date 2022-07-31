@@ -9,17 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@babel/core": "^7.18.9",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
     "@stripe/stripe-js": "^1.34.0",
-    "comma-number": "^2.1.0",
-    "format-thousands": "^2.0.0",
-    "next": "12.2.2",
+    "axios": "^0.27.2",
+    "next": "^12.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.3.0",
     "react-icons": "^4.4.0",
-    "strip": "^3.0.0",
     "stripe": "^9.16.0"
   },
   "devDependencies": {

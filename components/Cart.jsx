@@ -33,13 +33,11 @@ const Cart = () => {
       },
       body: JSON.stringify(cart),
     });
-
-    if (response.statusCode === 500) return;
-
+    if (response.statusCode === 500) {
+      toast.error('Something went wrong');
+    }
     const data = await response.json();
-
-    toast.loading('Redirecting...');
-
+    toast.loading('Redirecting to Stripe');
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
