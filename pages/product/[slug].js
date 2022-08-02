@@ -10,31 +10,34 @@ import Product from '../../components/Product';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-  const { name, details, price, image, _id } = product;
-  const [isIndex, setIndex] = useState(0);
-  const { incQty, decQty, qty, onAdd } = useStateContext();
+  const { name, details, price, image } = product;
+  const [index, setIndex] = useState(0);
+  const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext();
+  const handleBuyNow = () => {
+    onAdd(product, qty);
+    setShowCart(true);
+  };
+
   return (
     <div>
       <div className="product-detail-container">
         <div>
           <div className="image-container">
             <img
+              src={urlFor(image && image[index])}
               className="product-detail-image"
-              src={urlFor(image && image[isIndex])}
             />
           </div>
 
           <div className="small-images-container">
-            {image?.map((image, index) => (
+            {image?.map((image, i) => (
               <img
-                key={index}
-                className={
-                  index === isIndex
-                    ? 'small-image selected-image'
-                    : 'small-image'
-                }
+                key={i}
                 src={urlFor(image)}
-                onMouseEnter={() => setIndex(index)}
+                className={
+                  i === index ? 'small-image selected-image' : 'small-image'
+                }
+                onMouseEnter={() => setIndex(i)}
               />
             ))}
           </div>
@@ -75,7 +78,7 @@ const ProductDetails = ({ product, products }) => {
             >
               Add to Cart
             </button>
-            <button className="buy-now" type="button">
+            <button className="buy-now" type="button" onClick={handleBuyNow}>
               Buy Now
             </button>
           </div>

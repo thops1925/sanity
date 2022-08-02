@@ -29,7 +29,6 @@ const Cart = () => {
     const response = axios.post('/api/stripe/', cart);
     const { data } = await response;
     const { error } = data;
-    console.log(response);
     if (error) {
       toast.error(error);
     }
