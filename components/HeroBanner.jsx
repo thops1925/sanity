@@ -3,17 +3,14 @@ import React from 'react';
 import { urlFor } from '../lib/client';
 
 const HeroBanner = ({ bannerData }) => {
+  const imgFind = urlFor(bannerData.image);
   return (
     <div className="hero-banner-container">
       <p className="beats-solo">{bannerData.smallText}</p>
       <h3>{bannerData.midText}</h3>
       <h1>{bannerData.largeText1}</h1>
 
-      <img
-        src={urlFor(bannerData.image)}
-        alt="camera"
-        className="hero-banner-image"
-      />
+      <img src={imgFind} alt="" className="hero-banner-image" />
       <div>
         <Link href={`/product/${bannerData.product}`}>
           <button type="button">{bannerData.buttonText}</button>
