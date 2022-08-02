@@ -11,6 +11,7 @@ import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
+import axios from 'axios';
 
 const Cart = () => {
   const cartRef = useRef();
@@ -25,20 +26,16 @@ const Cart = () => {
 
   const handleCheckOut = async () => {
     const stripe = await getStripe();
-
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(cart),
-    });
-    if (response.statusCode === 500) {
-      toast.error('Something went wrong');
+    const response = axios.post('/api/stripe/', cart);
+    const { data } = await response;
+    const { error } = data;
+    console.log(response);
+    if (error) {
+      toast.error(error);
     }
-    const data = await response.json();
-    toast.loading('Redirecting to Stripe');
-    stripe.redirectToCheckout({ sessionId: data.id });
+    stripe.redirectToCheckout({
+      sessionId: data.id,
+    });
   };
 
   return (
