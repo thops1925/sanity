@@ -24,7 +24,7 @@ const Success = () => {
           Please check your spam folder if you don't see it in your inbox.
         </p>
         <p className="email-msg">
-          If you have any questions, please contact us at{' '}
+          If you have any questions, please contact us at
           <a href="mailto:thops@gmail.com">mailto:thops@gmail.com</a>
         </p>
         <Link href="/">
