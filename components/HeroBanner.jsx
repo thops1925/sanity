@@ -12,9 +12,9 @@ const HeroBanner = ({ bannerData }) => {
 
       <img src={imgFind} alt="" className="hero-banner-image" />
       <div>
-        <Link href={`/product/${bannerData.product}`}>
+        {/* <Link href={`/product/${bannerData.product}`}>
           <button type="button">{bannerData.buttonText}</button>
-        </Link>
+        </Link> */}
         <div className="desc">
           <h5>Description</h5>
           <p>{bannerData.desc}</p>
