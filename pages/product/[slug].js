@@ -24,16 +24,21 @@ const ProductDetails = ({ product, products }) => {
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <Image src={urlFor(image)} alt={name} width={300} height={300} />
+            <img
+              src={urlFor(image && image[index])} // eslint-disable-line
+              alt={name}
+              width={300}
+              height={300}
+            />
           </div>
 
           <div className="small-images-container">
             {image?.map((image, i) => (
-              <Image
-                src={urlFor(image)}
+              <img
+                src={urlFor(image)} // eslint-disable-line
                 alt={name}
-                width={50}
-                height={50}
+                width={300}
+                height={300}
                 key={i}
                 className={
                   i === index ? 'small-image selected-image' : 'small-image'

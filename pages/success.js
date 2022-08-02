@@ -10,6 +10,7 @@ const Success = () => {
     setTotalPrice(0);
     setTotalQuantity(0);
   }, []);
+
   return (
     <div className="success-wrapper">
       <div className="success">
